@@ -2,14 +2,18 @@ import datetime
 import dateutil.easter
 class flaggdag:
 
-  def __init__(self, year):
-    self.initYear(year)
+  def __init__(self, year=None):
     self.easter=None
     self.midsummer=None
     self.allhelgon=None
     self.valdagen=None
     self.flagdays=[]
     self.holidays=[]
+
+    if (year==None):
+      year=datetime.date.today().year
+    self.initYear(year)
+
 
   def initYear(self, year): 
     print("Initializing year ", year)
@@ -102,7 +106,7 @@ if __name__ == '__main__':
   today = datetime.date.today()
   year = today.year
 
-  flagga=flaggdag(year)
+  flagga=flaggdag()
   print ("Flaggdag")
 
   for x in range(2022, 2031):
